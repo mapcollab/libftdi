@@ -136,7 +136,7 @@ rm -rf $RPM_BUILD_ROOT/%{_libdir}/cmake*
 %postun c++ -p /sbin/ldconfig
 
 %changelog
-* Wed Nov 04 2015 Tomasz Rostanski <tomasz.rostanski@thalesgroup.com> - 1.2-1
+* Wed Nov 04 2015 Tomasz Rostanski 1.2-1
 - Update to 1.2
 
 * Sun Aug 17 2014 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 1.1-4
