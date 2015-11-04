@@ -1,13 +1,13 @@
 %{!?python_sitearch: %global python_sitearch %(%{__python} -c "from distutils.sysconfig import get_python_lib; print get_python_lib(1)")}
 Name:		libftdi
-Version:	1.1
-Release:	4%{?dist}
+Version:	1.2
+Release:	1%{?dist}
 Summary:	Library to program and control the FTDI USB controller
 
 Group:		System Environment/Libraries
 License:	LGPLv2
 URL:		http://www.intra2net.com/de/produkte/opensource/ftdi/
-Source0:	http://www.intra2net.com/en/developer/%{name}/download/%{name}1-%{version}.tar.bz2
+Source0:	%{name}-%{version}.tar.gz
 
 BuildRequires:	boost-devel
 BuildRequires:	cmake
@@ -60,7 +60,7 @@ for building C++ applications with libftdi.
 
 
 %prep
-%setup -q -n %{name}1-%{version}
+%setup -q -n %{name}-%{version}
 
 #kernel does not provide usb_device anymore
 sed -i -e 's/usb_device/usb/g' packages/99-libftdi.rules
@@ -136,6 +136,9 @@ rm -rf $RPM_BUILD_ROOT/%{_libdir}/cmake*
 %postun c++ -p /sbin/ldconfig
 
 %changelog
+* Wed Nov 04 2015 Tomasz Rostanski <tomasz.rostanski@thalesgroup.com> - 1.2-1
+- Update to 1.2
+
 * Sun Aug 17 2014 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 1.1-4
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_21_22_Mass_Rebuild
 
